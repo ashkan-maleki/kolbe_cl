@@ -5,15 +5,23 @@ import datetime
 import json
 import requests
 
+from film.views.film_list import FilmList
+from film.views.omdbapi_search import OmdbApiSearchView
+
+film_list = FilmList.as_view()
+omdbapi_search = OmdbApiSearchView.as_view()
+
+
 # Create your views here.
 # http://www.omdbapi.com/?i=tt3896198&apikey=59e10d8
 
 
 class Person(object):
-    def __init__(self, name, craft):
-        self.name = name
-        self.craft = craft
-        super().__init__()
+    name = ''
+    craft = ''
+
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)
 
     def __str__(self):
         return f'craft of {self.name} is {self.craft}'

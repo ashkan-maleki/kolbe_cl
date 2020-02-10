@@ -1,0 +1,13 @@
+{% extends "front/base.html" %}
+
+{% block title %}
+Movie List
+{% endblock %}
+{% block content %}
+<h2>Movie List</h2>
+<ul>
+    {% for film in object_list %}
+    <li>{{ film.title }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
